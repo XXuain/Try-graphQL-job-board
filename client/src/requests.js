@@ -62,7 +62,7 @@ export const loadJob = async (id) => {
     }
   }
 `;
-  const { job = {} } = await graphqlRequest(query, { id });
+  const { job = null } = await graphqlRequest(query, { id });
   return job;
 };
 
@@ -78,6 +78,6 @@ export const loadCompany = async (id) => {
       }
     }
   }`;
-  const { company = {} } = await graphqlRequest(query, { id });
+  const { company = null } = await graphqlRequest(query, { id });
   return company;
 };
