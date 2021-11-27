@@ -8,6 +8,12 @@ import { gql } from 'graphql-tag';
 import { isLoggedIn, getAccessToken } from './auth';
 const endpointURL = 'http://localhost:9001/graphql';
 
+/**
+ * fetchPolicy
+ * - cache-first: default
+ * - no-cache: never use cache, always fetch date from server
+ */
+
 const authLink = new ApolloLink((operation, forward) => {
   if (isLoggedIn()) {
     const token = getAccessToken();
@@ -56,7 +62,7 @@ export const loadJobs = async () => {
       }
     }
   `;
-  const { data } = await client.query({ query });
+  const { data } = await client.query({ query, fetchPolicy: 'no-cache' });
   return data.jobs;
 };
 
