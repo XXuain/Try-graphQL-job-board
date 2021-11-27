@@ -20,6 +20,6 @@ export const loadJobs = async () => {
       `,
     }),
   });
-  const responseBody = response.json();
-  return responseBody.data.jobs;
+  const responseBody = await response.json();
+  return responseBody.data?.jobs || [];
 };

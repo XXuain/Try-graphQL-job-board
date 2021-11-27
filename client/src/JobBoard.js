@@ -5,7 +5,8 @@ import { loadJobs } from './requests';
 
 export class JobBoard extends Component {
   constructor(props) {
-    super(props), (this.state = { jobs: [] });
+    super(props);
+    this.state = { jobs: [] };
   }
 
   async componentDidMount() {
